@@ -80,7 +80,7 @@ public class HoppingWindowWithLatestResult {
         long endMs = key.window().end();
         long timestamp = getTimestampOfEvent();
 
-        return (Math.floor(timestamp)) * ADVANCE_MS == endMs;
+        return (Math.ceil((float)timestamp / ADVANCE_MS)) * ADVANCE_MS == endMs;
     }
 
     /**
